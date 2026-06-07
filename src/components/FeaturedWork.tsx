@@ -1,70 +1,13 @@
 import { Reveal } from './Reveal';
-import { DynamicFrameLayout, Frame } from './ui/dynamic-frame-layout';
+import ReactPlayer from 'react-player';
 
-const frames: Frame[] = [
-  {
-    id: 1,
-    video: "https://www.youtube.com/watch?v=xCpMjxuQqV4",
-    coverImage: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=80",
-    defaultPos: { x: 0, y: 0, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 2,
-    video: "https://www.youtube.com/watch?v=b7Lc9TdAc0c",
-    coverImage: "https://images.unsplash.com/photo-1503376713280-4d4023ad3712?w=800&q=80",
-    defaultPos: { x: 4, y: 0, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 3,
-    video: "https://www.youtube.com/watch?v=rb4KoL8bkjg",
-    coverImage: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80",
-    defaultPos: { x: 8, y: 0, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 4,
-    video: "https://www.youtube.com/watch?v=OUgqQMWOGoY",
-    coverImage: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=800&q=80",
-    defaultPos: { x: 0, y: 4, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 5,
-    video: "https://www.youtube.com/watch?v=hmfuVufq-Kc",
-    coverImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-    defaultPos: { x: 4, y: 4, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 6,
-    video: "https://www.youtube.com/watch?v=sMxgdEkto68",
-    coverImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
-    defaultPos: { x: 8, y: 4, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 7,
-    video: "https://www.youtube.com/watch?v=xCpMjxuQqV4",
-    coverImage: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80",
-    defaultPos: { x: 0, y: 8, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 8,
-    video: "https://www.youtube.com/watch?v=b7Lc9TdAc0c",
-    coverImage: "https://images.unsplash.com/photo-1563986768494-4dee2763ff0f?w=800&q=80",
-    defaultPos: { x: 4, y: 8, w: 4, h: 4 },
-    mediaSize: 1,
-  },
-  {
-    id: 9,
-    video: "https://www.youtube.com/watch?v=rb4KoL8bkjg",
-    coverImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-    defaultPos: { x: 8, y: 8, w: 4, h: 4 },
-    mediaSize: 1,
-  },
+const videos = [
+  { id: 1, url: "https://www.youtube.com/watch?v=xCpMjxuQqV4", title: "Project 1" },
+  { id: 2, url: "https://www.youtube.com/watch?v=b7Lc9TdAc0c", title: "Project 2" },
+  { id: 3, url: "https://www.youtube.com/watch?v=rb4KoL8bkjg", title: "Project 3" },
+  { id: 4, url: "https://www.youtube.com/watch?v=OUgqQMWOGoY", title: "Project 4" },
+  { id: 5, url: "https://www.youtube.com/watch?v=hmfuVufq-Kc", title: "Project 5" },
+  { id: 6, url: "https://www.youtube.com/watch?v=sMxgdEkto68", title: "Project 6" }
 ];
 
 export function FeaturedWork() {
@@ -78,16 +21,22 @@ export function FeaturedWork() {
           </Reveal>
         </div>
         
-        <Reveal delay={0.2} className="w-full">
-          <div className="w-full h-[60vh] md:h-[800px]">
-            <DynamicFrameLayout 
-              frames={frames} 
-              className="w-full h-full" 
-              hoverSize={6}
-              gapSize={8}
-            />
-          </div>
-        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {videos.map((video, index) => (
+            <Reveal key={video.id} delay={index * 0.1}>
+              <div className="w-full aspect-video rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800/50 shadow-2xl relative group">
+                <ReactPlayer
+                  url={video.url}
+                  width="100%"
+                  height="100%"
+                  controls={true}
+                  light={true}
+                  className="absolute top-0 left-0"
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
