@@ -186,13 +186,12 @@ interface DynamicFrameLayoutProps {
 }
 
 export function DynamicFrameLayout({ 
-  frames: initialFrames, 
+  frames, 
   className,
   showFrames = false,
   hoverSize = 6,
   gapSize = 8
 }: DynamicFrameLayoutProps) {
-  const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
 
   const getRowSizes = () => {
