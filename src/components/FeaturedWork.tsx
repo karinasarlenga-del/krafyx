@@ -13,10 +13,10 @@ export function FeaturedWork() {
   return (
     <section id="work" className="py-40 bg-[#050505] relative overflow-hidden">
       {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[1000px] h-[600px] md:h-[1000px] bg-white/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] h-[800px] md:h-[1200px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="px-6 md:px-16 max-w-7xl mx-auto relative z-10">
-        <div className="flex justify-between items-end mb-24">
+        <div className="flex justify-between items-end mb-24 md:mb-32">
           <Reveal>
             <div className="flex items-center gap-4 mb-6">
               <span className="h-[1px] w-12 bg-white/30"></span>
@@ -29,17 +29,17 @@ export function FeaturedWork() {
           </Reveal>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="flex flex-col gap-16 md:gap-32">
           {videos.map((video, index) => (
-            <Reveal key={video.id} delay={index * 0.1}>
+            <Reveal key={video.id} delay={0.1}>
               <div 
-                className={`w-full aspect-video rounded-xl overflow-hidden bg-[#0A0A0A] border border-white/5 shadow-2xl relative group transition-all duration-700 ease-out hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] ${index % 3 === 1 ? 'lg:mt-16' : ''}`}
+                className="w-full aspect-video rounded-xl md:rounded-3xl overflow-hidden bg-[#0A0A0A] border border-white/5 shadow-[0_0_80px_rgba(0,0,0,0.8)] relative group transition-all duration-700 ease-out hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_0_60px_rgba(255,255,255,0.05)]"
               >
                 {/* Glassmorphism subtle glare overlay */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.07] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
                 
                 <iframe 
-                  className="absolute top-0 left-0 w-full h-full grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                  className="absolute top-0 left-0 w-full h-full grayscale-[15%] group-hover:grayscale-0 transition-all duration-700"
                   src={video.embedUrl} 
                   title={video.title}
                   frameBorder="0" 
