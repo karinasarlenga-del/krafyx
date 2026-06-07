@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import ReactPlayer from "react-player/lazy"
+import ReactPlayer from "react-player"
 
 export interface Frame {
   id: number
