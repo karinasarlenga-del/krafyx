@@ -89,7 +89,7 @@ function FrameComponent({
               transition: "transform 0.3s ease-in-out",
             }}
           >
-            <div className="relative w-full h-full pointer-events-none">
+            <div className="relative w-full h-full pointer-events-none bg-black">
               <div 
                 className={`absolute inset-0 z-10 transition-opacity duration-500 ${playing ? 'opacity-0' : 'opacity-100'}`}
               >
@@ -97,7 +97,7 @@ function FrameComponent({
                   <img src={coverImage} alt="Cover" className="w-full h-full object-cover" />
                 )}
               </div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] z-0">
+              <div className="absolute inset-0 z-0">
                 <ReactPlayer
                   url={video}
                   playing={playing}
@@ -108,7 +108,7 @@ function FrameComponent({
                   height="100%"
                   config={{
                     youtube: {
-                      playerVars: { controls: 0, disablekb: 1, modestbranding: 1, rel: 0, playsinline: 1 }
+                      playerVars: { controls: 0, disablekb: 1, modestbranding: 1, rel: 0 }
                     }
                   }}
                 />
