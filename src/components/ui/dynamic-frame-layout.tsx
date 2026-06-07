@@ -7,6 +7,7 @@ import ReactPlayer from "react-player"
 export interface Frame {
   id: number
   video: string
+  coverImage?: string
   defaultPos: { x: number; y: number; w: number; h: number }
   corner?: string
   edgeHorizontal?: string
@@ -19,6 +20,7 @@ export interface Frame {
 
 interface FrameComponentProps {
   video: string
+  coverImage?: string
   width: number | string
   height: number | string
   className?: string
@@ -34,6 +36,7 @@ interface FrameComponentProps {
 
 function FrameComponent({
   video,
+  coverImage,
   width,
   height,
   className = "",
@@ -65,7 +68,7 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden bg-zinc-900 rounded-lg">
+      <div className="relative w-full h-full overflow-hidden bg-zinc-900 rounded-lg group">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -86,17 +89,19 @@ function FrameComponent({
               transition: "transform 0.3s ease-in-out",
             }}
           >
-            <div className="w-[150%] h-[150%] pointer-events-none">
+            <div className="w-full h-full pointer-events-none [&>div]:!h-full [&>div]:!w-full [&_img]:!object-cover [&_iframe]:!w-[150%] [&_iframe]:!h-[150%] [&_iframe]:!-ml-[25%] [&_iframe]:!-mt-[25%]">
               <ReactPlayer
                 url={video}
                 playing={playing}
                 loop
                 muted
+                playsinline
+                light={coverImage || true}
                 width="100%"
                 height="100%"
                 config={{
                   youtube: {
-                    playerVars: { controls: 0, disablekb: 1, modestbranding: 1, rel: 0 }
+                    playerVars: { controls: 0, disablekb: 1, modestbranding: 1, rel: 0, playsinline: 1 }
                   }
                 }}
               />
@@ -231,6 +236,7 @@ export function DynamicFrameLayout({
           >
             <FrameComponent
               video={frame.video}
+              coverImage={frame.coverImage}
               width="100%"
               height="100%"
               className="absolute inset-0"
