@@ -1,0 +1,6 @@
+{
+  "name": "KRAFYX",
+  "description": "A boutique creative studio specializing in advertising films and branded content.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
