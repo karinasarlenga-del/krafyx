@@ -1,13 +1,12 @@
 import { Reveal } from './Reveal';
-import ReactPlayer from 'react-player';
 
 const videos = [
-  { id: 1, url: "https://www.youtube.com/watch?v=xCpMjxuQqV4", title: "Project 1" },
-  { id: 2, url: "https://www.youtube.com/watch?v=b7Lc9TdAc0c", title: "Project 2" },
-  { id: 3, url: "https://www.youtube.com/watch?v=rb4KoL8bkjg", title: "Project 3" },
-  { id: 4, url: "https://www.youtube.com/watch?v=OUgqQMWOGoY", title: "Project 4" },
-  { id: 5, url: "https://www.youtube.com/watch?v=hmfuVufq-Kc", title: "Project 5" },
-  { id: 6, url: "https://www.youtube.com/watch?v=sMxgdEkto68", title: "Project 6" }
+  { id: 1, embedUrl: "https://www.youtube.com/embed/xCpMjxuQqV4", title: "Project 1" },
+  { id: 2, embedUrl: "https://www.youtube.com/embed/b7Lc9TdAc0c", title: "Project 2" },
+  { id: 3, embedUrl: "https://www.youtube.com/embed/rb4KoL8bkjg", title: "Project 3" },
+  { id: 4, embedUrl: "https://www.youtube.com/embed/OUgqQMWOGoY", title: "Project 4" },
+  { id: 5, embedUrl: "https://www.youtube.com/embed/hmfuVufq-Kc", title: "Project 5" },
+  { id: 6, embedUrl: "https://www.youtube.com/embed/sMxgdEkto68", title: "Project 6" }
 ];
 
 export function FeaturedWork() {
@@ -25,14 +24,14 @@ export function FeaturedWork() {
           {videos.map((video, index) => (
             <Reveal key={video.id} delay={index * 0.1}>
               <div className="w-full aspect-video rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800/50 shadow-2xl relative group">
-                <ReactPlayer
-                  url={video.url}
-                  width="100%"
-                  height="100%"
-                  controls={true}
-                  light={true}
-                  className="absolute top-0 left-0"
-                />
+                <iframe 
+                  className="absolute top-0 left-0 w-full h-full"
+                  src={video.embedUrl} 
+                  title={video.title}
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
               </div>
             </Reveal>
           ))}
