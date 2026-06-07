@@ -89,22 +89,30 @@ function FrameComponent({
               transition: "transform 0.3s ease-in-out",
             }}
           >
-            <div className="w-full h-full pointer-events-none [&>div]:!h-full [&>div]:!w-full [&_img]:!object-cover [&_iframe]:!w-[150%] [&_iframe]:!h-[150%] [&_iframe]:!-ml-[25%] [&_iframe]:!-mt-[25%]">
-              <ReactPlayer
-                url={video}
-                playing={playing}
-                loop
-                muted
-                playsinline
-                light={coverImage || true}
-                width="100%"
-                height="100%"
-                config={{
-                  youtube: {
-                    playerVars: { controls: 0, disablekb: 1, modestbranding: 1, rel: 0, playsinline: 1 }
-                  }
-                }}
-              />
+            <div className="relative w-full h-full pointer-events-none">
+              <div 
+                className={`absolute inset-0 z-10 transition-opacity duration-500 ${playing ? 'opacity-0' : 'opacity-100'}`}
+              >
+                {coverImage && (
+                  <img src={coverImage} alt="Cover" className="w-full h-full object-cover" />
+                )}
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] z-0">
+                <ReactPlayer
+                  url={video}
+                  playing={playing}
+                  loop
+                  muted
+                  playsinline
+                  width="100%"
+                  height="100%"
+                  config={{
+                    youtube: {
+                      playerVars: { controls: 0, disablekb: 1, modestbranding: 1, rel: 0, playsinline: 1 }
+                    }
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
