@@ -52,7 +52,7 @@ const translations: Translations = {
       heading: 'Somos un estudio creativo boutique especializado en cine publicitario y contenido de marca. Combinamos cinematografía de alto nivel con lógica de marca estratégica para crear piezas que no solo se ven bien, sino que funcionan.',
       visTitle: 'Visión', visDesc: 'Redefiniendo el estándar audiovisual comercial a través de una lente cinematográfica y obsesión por el detalle.',
       procTitle: 'Proceso', procDesc: 'Desde el concepto hasta la postproducción, gestionamos cada plano para asegurar una narrativa de marca cohesiva y de alto impacto.',
-      globTitle: 'Global', globDesc: 'Con sede en España, operamos globalmente. Producimos contenido que se traduce a través de culturas y mercados.'
+      globTitle: 'Global', globDesc: 'Operamos globalmente. Producimos contenido que se traduce a través de culturas y mercados.'
     },
     contact: {
       heading: 'Iniciar proyecto', desc: 'Cuéntanos sobre tu visión. Creemos algo extraordinario juntos.',
@@ -88,7 +88,7 @@ const translations: Translations = {
       heading: 'We are a boutique creative studio specializing in advertising films and branded content. We combine high-end cinematography with strategic brand logic to create visuals that don\'t just look good—they perform.',
       visTitle: 'Vision', visDesc: 'Redefining the standard of commercial audiovisuals through a cinematic lens and obsession with detail.',
       procTitle: 'Process', procDesc: 'From concept to post-production, we manage every frame to ensure a cohesive and high-impact brand narrative.',
-      globTitle: 'Global', globDesc: 'Based in Spain, operating globally. We produce content that translates across cultures and markets.'
+      globTitle: 'Global', globDesc: 'Operating globally. We produce content that translates across cultures and markets.'
     },
     contact: {
       heading: 'Start a project', desc: 'Tell us about your vision. Let\'s create something extraordinary together.',

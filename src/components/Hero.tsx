@@ -7,9 +7,12 @@ export function Hero() {
   return (
     <section id="hero" className="relative min-h-[90vh] w-full flex items-center overflow-hidden pt-20">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuoSnFzmQIoK9kiuEDekNbTJ2KRirsD9tXklMiiKtUac1q_UgkWcWA5ta44lU0y-u1rEu8z9yD_kQmTDU2ZTVhEGTJmjhVYDZxid9DVFrZlJJPbraoWab6UcwxvIiS6NYBfxqy4RLXocQG_nZ6PA1EDeh382LeUYYTNSgw6dsVpupt438p_XvP27BaMJnNfLiLyRIK3rPSrWFFdkSYvzdj0V69bShU6zZXlE2x3CaSc7J5eo2rPJ4iL0h9xLlRMvtAsEu7E59MsRti" 
-          alt="Hero background" 
+        <video 
+          src="/Astro%202.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
           className="w-full h-full object-cover" 
         />
         <div className="absolute inset-0 bg-black/40"></div>
