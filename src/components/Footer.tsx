@@ -1,4 +1,7 @@
+import { useLanguage } from '../LanguageContext';
+
 export function Footer() {
+  const { lang, setLang, t } = useLanguage();
   return (
     <footer className="bg-[#050505] border-t border-[#2C2C2E] px-6 md:px-16 py-16 w-full">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
@@ -8,15 +11,12 @@ export function Footer() {
             alt="KRAFYX" 
             className="h-6 w-auto opacity-70 grayscale" 
           />
-          <p className="font-geist text-[12px] tracking-[0.1em] text-[#c4c7c8]">© 2024 KRAFYX. All rights reserved.</p>
-        </div>
-        <div className="flex gap-10">
-          <a href="#" className="text-[#c4c7c8] hover:text-white transition-colors duration-300 font-geist text-[12px] uppercase tracking-[0.1em]">Instagram</a>
-          <a href="#" className="text-[#c4c7c8] hover:text-white transition-colors duration-300 font-geist text-[12px] uppercase tracking-[0.1em]">LinkedIn</a>
-          <a href="#" className="text-[#c4c7c8] hover:text-white transition-colors duration-300 font-geist text-[12px] uppercase tracking-[0.1em]">Vimeo</a>
+          <p className="font-geist text-[12px] tracking-[0.1em] text-[#c4c7c8]">{t.footer.rights}</p>
         </div>
         <div className="font-geist text-[12px] tracking-[0.1em] text-[#c4c7c8]">
-          <span className="hover:text-white cursor-pointer transition-colors duration-300">ES | EN</span>
+          <span className={`cursor-pointer transition-colors duration-300 ${lang === 'es' ? 'text-white' : 'hover:text-white'}`} onClick={() => setLang('es')}>ES</span>
+          <span className="mx-2">|</span>
+          <span className={`cursor-pointer transition-colors duration-300 ${lang === 'en' ? 'text-white' : 'hover:text-white'}`} onClick={() => setLang('en')}>EN</span>
         </div>
       </div>
     </footer>

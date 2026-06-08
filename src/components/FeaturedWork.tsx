@@ -1,4 +1,5 @@
 import { Reveal } from './Reveal';
+import { useLanguage } from '../LanguageContext';
 
 const videos = [
   { id: 1, embedUrl: "https://www.youtube.com/embed/xCpMjxuQqV4", title: "Project 1" },
@@ -10,6 +11,7 @@ const videos = [
 ];
 
 export function FeaturedWork() {
+  const { t } = useLanguage();
   return (
     <section id="work" className="py-40 bg-[#050505] relative overflow-hidden">
       {/* Ambient Glow */}
@@ -20,11 +22,10 @@ export function FeaturedWork() {
           <Reveal>
             <div className="flex items-center gap-4 mb-6">
               <span className="h-[1px] w-12 bg-white/30"></span>
-              <span className="font-geist text-[11px] font-medium text-white/50 uppercase tracking-[0.4em]">Curated Archive</span>
+              <span className="font-geist text-[11px] font-medium text-white/50 uppercase tracking-[0.4em]">{t.work.archive}</span>
             </div>
             <h2 className="font-montserrat text-[40px] md:text-[64px] font-light leading-[1.1] tracking-tight text-white">
-              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Featured Work</span> / <br className="md:hidden"/>
-              <span className="text-white/30">Trabajos Destacados</span>
+              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">{t.work.heading}</span>
             </h2>
           </Reveal>
         </div>
