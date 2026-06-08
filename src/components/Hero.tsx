@@ -5,7 +5,7 @@ import { useLanguage } from '../LanguageContext';
 export function Hero() {
   const { t } = useLanguage();
   return (
-    <section id="hero" className="relative min-h-[90vh] w-full flex items-center overflow-hidden pt-20">
+    <section id="hero" className="relative min-h-screen w-full flex items-center overflow-hidden pt-20">
       <div className="absolute inset-0 z-0">
         <video 
           src="/Astro%202.mp4" 
