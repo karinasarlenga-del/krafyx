@@ -4,6 +4,20 @@ import { useLanguage } from '../LanguageContext';
 
 export function Contact() {
   const { t } = useLanguage();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const company = formData.get('company') as string;
+    const projectDetails = formData.get('project_details') as string;
+
+    const subject = encodeURIComponent(`New Inquiry: ${name} ${company ? `- ${company}` : ''}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\n\nProject Details:\n${projectDetails}`);
+    
+    window.location.href = `mailto:krafyx.com@gmail.com?subject=${subject}&body=${body}`;
+  };
   return (
     <section id="contact" className="py-40 bg-[#050505]">
       <div className="px-6 md:px-16 max-w-7xl mx-auto">
@@ -27,7 +41,7 @@ export function Contact() {
           </div>
           
           <div className="md:col-span-7">
-            <form action="https://formsubmit.co/krafyx.com@gmail.com" method="POST" className="space-y-16">
+            <form onSubmit={handleSubmit} className="space-y-16">
               <Reveal delay={0.2} className="space-y-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="relative group">
