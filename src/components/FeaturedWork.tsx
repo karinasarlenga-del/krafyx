@@ -7,7 +7,8 @@ const videos = [
   { id: 3, embedUrl: "https://www.youtube.com/embed/rb4KoL8bkjg", title: "Project 3" },
   { id: 4, embedUrl: "https://www.youtube.com/embed/OUgqQMWOGoY", title: "Project 4" },
   { id: 5, embedUrl: "https://www.youtube.com/embed/hmfuVufq-Kc", title: "Project 5" },
-  { id: 6, embedUrl: "https://www.youtube.com/embed/sMxgdEkto68", title: "Project 6" }
+  { id: 6, embedUrl: "https://www.youtube.com/embed/sMxgdEkto68", title: "Project 6" },
+  { id: 7, embedUrl: "https://www.youtube.com/embed/3-9y--VVgvE", title: "Project 7" }
 ];
 
 export function FeaturedWork() {
